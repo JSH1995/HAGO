@@ -34,6 +34,7 @@
                 <a href="http://127.0.0.1:8080/?stage=2" class="btn">다음 스테이지</a> -->
                 <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
                 <link rel="stylesheet" href="src/css/m.css"> 
+                <script src="../entry-tool/dist/entry-tool.js"></script>
                 
                 &nbsp;<button class="btn" id="btn" type="submit"><img class="btn-img" src="../images/media/HAGO.png"width="200" height="80" onclick="location.href='https://codinghago.imweb.me/index?preview_mode=1'"></button>
                  
@@ -64,7 +65,6 @@
         <section class="wrapper">
             <div id="workspace"></div>
         </section>
-
         <!--language-->
         <script src="../extern/lang/ko.js"></script>
 
@@ -97,7 +97,7 @@
         <script type="text/javascript" src="https://playentry.org/lib/entry-lms/dist/assets/app.js"></script>
         <script type="text/javascript" src="https://playentry.org/lib/literallycanvas-mobile/lib/js/literallycanvas.js"></script>
        
-
+        <script type="text/javascript" src="../entry-tool/src/components/popup/Sample.jsx"></script>
 
       
 
@@ -139,7 +139,6 @@
                 };
                 Entry.init(document.getElementById('workspace'), initOption);
                 Entry.loadProject();
-               
             });
           
         </script>

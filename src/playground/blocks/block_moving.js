@@ -591,6 +591,7 @@ module.exports = {
                         img: 'block_icon/moving_icon.svg',
                         size: 11,
                     },
+                    
                 ],
                 events: {},
                 def: {
@@ -654,7 +655,9 @@ module.exports = {
                         if (script.frameCount == 1) {
                             action();
                         }
+                        
                     }
+                    
 
                     if (script.frameCount != 0) {
                         action();

@@ -2,6 +2,7 @@
 
 const { createTooltip, returnEmptyArr, getExpectedData } = require('../command_util');
 
+
 (function(c) {
     const COMMAND_TYPES = Entry.STATIC.COMMAND_TYPES;
 

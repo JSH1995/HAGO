@@ -4,6 +4,28 @@
 'use strict';
 
 import { GEHelper } from '../graphicEngine/GEHelper';
+import { EntryTexture } from './pixi/atlas/texture/EntryTexture';
+import { EntryTool } from '../../entry-tool/dist/entry-tool';
+//import { ET_sam } from '../../entry-tool/dist/entry-tool/src/components/popup';
+//import { sprite } from './entry-tool/src/components/popup/index';
+
+var i = 'off';
+
+export var i;
+
+function test (){
+    //console.log('function test');
+};
+
+function winpopup (){
+
+    Entry.engine.testcanvas();
+    //Entry.dispatchEvent('openspritemanager');
+	//alert("test_MSG");
+
+};
+
+
 
 /**
  * Class for a engine.
@@ -20,6 +42,9 @@ Entry.Engine = class Engine {
         this.attachKeyboardCapture();
 
         const _addEventListener = Entry.addEventListener.bind(Entry);
+
+
+
 
         _addEventListener('canvasClick', () => this.fireEvent('mouse_clicked'));
         _addEventListener('canvasClickCanceled', () => this.fireEvent('mouse_click_cancled'));
@@ -128,8 +153,16 @@ Entry.Engine = class Engine {
             this.addButton = Entry.createElement('button')
                 .addClass('entryEngineButtonWorkspace_w')
                 .addClass('entryAddButtonWorkspace_w')
+
                 .bindOnClick(function() {
                     Entry.do('addObjectButtonClick');
+                    
+                    /* + 클릭시 실행되는 부분 */
+                    test();
+                    winpopup();
+                    
+
+                    console.log('test_end');
                     this.blur();
                 })
                 .appendTo(this.buttonWrapper);
@@ -222,6 +255,8 @@ Entry.Engine = class Engine {
             this.stopButton.addClass('entryRemove');
             this.stopButton.innerHTML = Lang.Workspace.stop;
             this.view_.appendChild(this.stopButton);
+
+
             this.stopButton.bindOnClick(function(e) {
                 this.blur();
                 Entry.engine.toggleStop();
@@ -828,26 +863,86 @@ Entry.Engine = class Engine {
     /**
      * Toggle full screen of canvas
      */
-    toggleFullScreen(popupClassName) {
+
+
+    testcanvas(popupClassName){
+        i = 'off';
+        console.log(i);
         if (!this.popup) {
             this.popup = new Entry.Popup(popupClassName);
+            //console.log('testcanvas_if_test01');
+
+            //var test_btn = document.createElement( 'button' );
+
+            var para = document.createElement("h1");
+            var node = document.createTextNode("test중입니다");
+            var parabr = document.createElement("br");
+            var node2 = document.createTextNode("에베벱베베베베베ㅔ");
+            para.appendChild(node);
+            para.appendChild(parabr);
+            para.appendChild(node2);
+
+            //console.log('testcanvas_if_test02');
+
+            //this.test_btn.appendChild(text_01);
+            //this.popup.window_.appendChild(test_btn);
+            
+            this.popup.window_.append(para);
+            //popup.window_.appendChild(Entry.engine.testview_);
+            
+            console.log('testcanvas_if_test03');
+
+            //this.popup.window_.remove();
+            //console.log('testcanvas_if_test03_text01remove');
+
+        } else {
+            //console.log('testcanvas_else_test');
+            this.popup.removeaddBTN();
+            this.popup = null;
+        }
+        
+    }
+
+
+
+    toggleFullScreen(popupClassName) {
+        i = 'on';
+        console.log(i);
+        if (!this.popup) {
+            this.popup = new Entry.Popup(popupClassName);
+            //console.log('FullSC_start1');
             if (Entry.engine.speedPanelOn) {
+
+                //console.log('FullSC_speed1');
+
                 Entry.engine.toggleSpeedPanel();
+
+                //console.log('FullSC_speed2');
             }
             if (Entry.type != 'workspace') {
+                //console.log('FullSC_work1');
+
                 const $doc = $(document);
                 const body = $(this.popup.body_);
                 body.css('top', $doc.scrollTop());
                 $('body').css('overflow', 'hidden');
 
+                //console.log('FullSC_work2');
+
                 popup.window_.appendChild(Entry.stage.canvas.canvas);
                 popup.window_.appendChild(Entry.engine.runButton[0]);
+                
             }
+            //console.log('FullSC_start2');
             popup.window_.appendChild(Entry.engine.view_);
+
             if (Entry.type === 'workspace' && Entry.targetChecker) {
+                //console.log('FullSC_view');
                 popup.window_.appendChild(Entry.targetChecker.getStatusView()[0]);
             }
         } else {
+            //console.log('fullSC_else_test');
+
             this.popup.remove();
             this.popup = null;
         }
@@ -864,11 +959,15 @@ Entry.Engine = class Engine {
     }
 
     exitFullScreen() {
+        //console.log('exit_test');
         if (document.webkitIsFullScreen || document.mozIsFullScreen || document.isFullScreen) {
+            //console.log('exit_test');
         } else {
+            //console.log('exit_test');
             Entry.engine.footerView_.removeClass('entryRemove');
             Entry.engine.headerView_.removeClass('entryRemove');
         }
+        //console.log('exit_test');
         Entry.windowResized.notify();
     }
 
@@ -1041,6 +1140,7 @@ Entry.Engine = class Engine {
     }
 
     destroy() {
+        //console.log('exit_test');
         // 우선 interface 만 정의함.
     }
 };
@@ -1056,3 +1156,4 @@ Entry.Engine.computeThread = function(entity, script) {
     }
     return script;
 };
+

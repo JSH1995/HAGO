@@ -1,3 +1,8 @@
+
+import { testcanvas } from '../../class/engine';
+import { EntryTool } from '../../../entry-tool/dist/entry-tool';
+import { openmodal } from '../../../entry-tool/src/actions/popup';
+
 module.exports = {
     getBlocks() {
         return {
@@ -25,6 +30,10 @@ module.exports = {
                 class: 'event',
                 isNotFor: [],
                 func(sprite, script) {
+
+                    setTimeout(function(){
+                        EntryTool.popup.openmodal();
+                    },2000)
                     return script.callReturn();
                 },
                 event: 'start',

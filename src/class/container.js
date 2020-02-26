@@ -6,6 +6,7 @@
 
 import { Draggable } from '@entrylabs/tool';
 import { GEHelper } from '../graphicEngine/GEHelper';
+//import { entrytool } from '../../entry-tool/dist/entry-tool';
 
 /**
  * Class for a container.
@@ -73,8 +74,10 @@ Entry.Container = class Container {
 
         const addButton = Entry.createElement('div')
             .addClass('entryAddObjectWorkspace')
+            
             .bindOnClick(() => {
-                Entry.dispatchEvent('openSpriteManager');
+                    Entry.dispatchEvent('openSpriteManager');
+                    this._rightClick(e);
             });
         addButton.innerHTML = Lang.Workspace.add_object;
 
@@ -137,6 +140,7 @@ Entry.Container = class Container {
         scrollWrapper.addEventListener('mousedown', (e) => {
             if (Entry.Utils.isRightButton(e)) {
                 e.stopPropagation();
+                
                 this._rightClick(e);
             }
 

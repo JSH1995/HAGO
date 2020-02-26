@@ -1,6 +1,9 @@
 /*
  *
  */
+
+import { entrytool } from '../../entry-tool/dist/entry-tool';
+
 'use strict';
 
 const UTIL = require('./command_util');
@@ -50,6 +53,7 @@ Entry.Commander = function(injectType) {
         const command = EntryCommand[commandType];
 
         console.log('commandType', commandType, getCommandName(commandType));
+        
 
         let state;
 

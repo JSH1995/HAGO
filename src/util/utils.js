@@ -38,8 +38,8 @@ Entry.loadProject = function(project) {
          project = Entry.getStartProject(Entry.mediaFilePath);   
          else if  (getParameterByName('stage') == 0)
          project = Entry.getStartProject2(Entry.mediaFilePath);
-         else if  (getParameterByName('test') == 1)
-         project = Entry.getStartProject2(Entry.mediaFilePath);   
+         else if  (getParameterByName('stage') == 4)
+         project = Entry.getStartProject4(Entry.mediaFilePath);   
        
         
 

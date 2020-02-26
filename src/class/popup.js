@@ -2,6 +2,7 @@
  * @fileoverview Popup object for generate popup.
  */
 'use strict';
+import { i } from './engine';
 
 /**
  * Constructor of popup
@@ -19,7 +20,16 @@ Entry.Popup = function(className) {
     }
     this.body_.bindOnClick(function(e) {
         if (e.target == this) {
-            this.popup.remove();
+            //console.log('popuponoff_test');
+            if (i === 'off'){
+            this.popup.removeaddBTN();
+            //console.log('popuponoff_off');
+            } else if (i === 'on') {
+                this.popup.remove();
+                //console.log('popuponoff_on');
+            } else {
+                console.log('popuponoff_else_erorr',i);
+            }
         }
     });
     this.body_.popup = this;
@@ -40,20 +50,65 @@ Entry.Popup = function(className) {
 /**
  * Remove this popup
  */
+//insertBefore 안지워짐
 Entry.Popup.prototype.remove = function() {
     while (this.window_.hasChildNodes()) {
         if (Entry.type == 'workspace') {
+            
             Entry.engineContainer.insertBefore(
                 this.window_.firstChild,
                 Entry.engineContainer.firstChild
             );
+
+            //Entry.engineContainer.firstChild.remove();
+
         } else if (Entry.type == 'minimize') {
             Entry.view_.insertBefore(this.window_.lastChild, Entry.view_.firstChild);
         } else {
+            
             Entry.engineContainer.insertBefore(
                 this.window_.lastChild,
                 Entry.engineContainer.firstChild
             );
+            
+        }
+    }
+    $('body').css('overflow', 'auto');
+    Entry.removeElement(this.body_);
+    window.popup = null;
+    Entry.removeEventListener('windowResized', this.resize);
+    Entry.engine.popup = null;
+    Entry.windowResized.notify();
+    if (
+        Entry.type === 'workspace' &&
+        Entry.targetChecker &&
+        !Entry.targetChecker.statusViewDisabled
+    ) {
+        Entry.targetChecker.getStatusView().remove();
+    }
+};
+
+//insertBefore 지워짐
+Entry.Popup.prototype.removeaddBTN = function() {
+    while (this.window_.hasChildNodes()) {
+        if (Entry.type == 'workspace') {
+            
+            Entry.engineContainer.insertBefore(
+                this.window_.firstChild,
+                Entry.engineContainer.firstChild
+            );
+            
+            Entry.engineContainer.firstChild.remove();
+
+        } else if (Entry.type == 'minimize') {
+            Entry.view_.insertBefore(this.window_.lastChild, Entry.view_.firstChild);
+        } else {
+            
+            Entry.engineContainer.insertBefore(
+                this.window_.lastChild,
+                Entry.engineContainer.firstChild
+            );
+            
         }
     }
     $('body').css('overflow', 'auto');
