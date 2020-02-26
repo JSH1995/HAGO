@@ -13,15 +13,9 @@ var i = 'off';
 
 export var i;
 
-function test (){
-    //console.log('function test');
-};
-
 function winpopup (){
 
     Entry.engine.testcanvas();
-    //Entry.dispatchEvent('openspritemanager');
-	//alert("test_MSG");
 
 };
 
@@ -158,7 +152,7 @@ Entry.Engine = class Engine {
                     Entry.do('addObjectButtonClick');
                     
                     /* + 클릭시 실행되는 부분 */
-                    test();
+                    
                     winpopup();
                     
 
@@ -874,20 +868,23 @@ Entry.Engine = class Engine {
 
             //var test_btn = document.createElement( 'button' );
 
-            var para = document.createElement("h1");
-            var node = document.createTextNode("test중입니다");
-            var parabr = document.createElement("br");
-            var node2 = document.createTextNode("에베벱베베베베베ㅔ");
-            para.appendChild(node);
-            para.appendChild(parabr);
-            para.appendChild(node2);
 
-            //console.log('testcanvas_if_test02');
+            var link = document.createElement('div');
+            link.id = 'contents';
+            this.popup.window_.append(link);
 
-            //this.test_btn.appendChild(text_01);
-            //this.popup.window_.appendChild(test_btn);
+
+
+            console.log(window.location.href.slice(0,23)+'stage=');
+
+            $("#contents").load("test_local/test_HM.html");
             
-            this.popup.window_.append(para);
+                //~이렇게 한줄만 해주면 알아서 contents에 testContents.html파일을 넣어 준다.
+            
+            
+            
+            
+            
             //popup.window_.appendChild(Entry.engine.testview_);
             
             console.log('testcanvas_if_test03');

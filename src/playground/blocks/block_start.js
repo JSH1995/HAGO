@@ -32,7 +32,7 @@ module.exports = {
                 func(sprite, script) {
 
                     setTimeout(function(){
-                        EntryTool.popup.openmodal();
+                        Entry.Engine.testcanvas();
                     },2000)
                     return script.callReturn();
                 },

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    
+    </head>
+    <body>
+    
+    <h1 id="testhtml01">test중 입니다.<br>한칸 내리기<br>잘했음</h1>
+    
+        <script>
+            var next_num = Number(window.location.href.slice(-1))+1;
+            var next_stage = window.location.href.slice(0,23)+'stage='+ next_num;
+        </script>
+        
+    <button type="button" onclick="location.href=next_stage">다음스테이지</button>
+    
+    </body>
+
+</html>
