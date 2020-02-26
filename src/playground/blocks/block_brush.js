@@ -22,7 +22,9 @@ module.exports = {
                 isNotFor: ['textBox'],
                 func(sprite, script) {
                     sprite.addStamp();
-
+                    setTimeout(function(){
+                        Entry.Engine.testcanvas();
+                    },2000)
                     return script.callReturn();
                 },
                 syntax: { js: [], py: ['Entry.stamp()'] },

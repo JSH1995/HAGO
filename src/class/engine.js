@@ -10,7 +10,6 @@ import { EntryTool } from '../../entry-tool/dist/entry-tool';
 //import { sprite } from './entry-tool/src/components/popup/index';
 
 var i = 'off';
-
 export var i;
 
 function winpopup (){
@@ -868,20 +867,15 @@ Entry.Engine = class Engine {
 
             //var test_btn = document.createElement( 'button' );
 
-
             var link = document.createElement('div');
             link.id = 'contents';
             this.popup.window_.append(link);
 
-
-
             console.log(window.location.href.slice(0,23)+'stage=');
 
+
             $("#contents").load("test_local/test_HM.html");
-            
-                //~이렇게 한줄만 해주면 알아서 contents에 testContents.html파일을 넣어 준다.
-            
-            
+
             
             
             
