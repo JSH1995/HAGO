@@ -1,3 +1,4 @@
+
 module.exports = {
     getBlocks() {
         return {
@@ -21,10 +22,14 @@ module.exports = {
                 class: 'stamp',
                 isNotFor: ['textBox'],
                 func(sprite, script) {
-                    sprite.addStamp();
+
                     setTimeout(function(){
-                        Entry.Engine.testcanvas();
+                        modal.style.display = "block";
                     },2000)
+                    console.log('test_can');
+
+                    sprite.addStamp();
+                    
                     return script.callReturn();
                 },
                 syntax: { js: [], py: ['Entry.stamp()'] },

@@ -4,20 +4,9 @@
 'use strict';
 
 import { GEHelper } from '../graphicEngine/GEHelper';
-import { EntryTexture } from './pixi/atlas/texture/EntryTexture';
-import { EntryTool } from '../../entry-tool/dist/entry-tool';
-//import { ET_sam } from '../../entry-tool/dist/entry-tool/src/components/popup';
-//import { sprite } from './entry-tool/src/components/popup/index';
 
 var i = 'off';
 export var i;
-
-function winpopup (){
-
-    Entry.engine.testcanvas();
-
-};
-
 
 
 /**
@@ -151,11 +140,6 @@ Entry.Engine = class Engine {
                     Entry.do('addObjectButtonClick');
                     
                     /* + 클릭시 실행되는 부분 */
-                    
-                    winpopup();
-                    
-
-                    console.log('test_end');
                     this.blur();
                 })
                 .appendTo(this.buttonWrapper);
@@ -857,6 +841,8 @@ Entry.Engine = class Engine {
      * Toggle full screen of canvas
      */
 
+// 엔트리속 팝업 test하던거
+/*
 
     testcanvas(popupClassName){
         i = 'off';
@@ -874,7 +860,9 @@ Entry.Engine = class Engine {
             console.log(window.location.href.slice(0,23)+'stage=');
 
 
-            $("#contents").load("test_local/test_HM.html");
+
+
+            //$("#contents").load("test_local/test_HM.html");
 
             
             
@@ -894,7 +882,7 @@ Entry.Engine = class Engine {
         
     }
 
-
+*/
 
     toggleFullScreen(popupClassName) {
         i = 'on';
